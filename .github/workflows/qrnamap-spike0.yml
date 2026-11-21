@@ -3,6 +3,9 @@
 # Uses the compiled artifacts of the Task 1 runs of this fork (source commit 0b015f63e8048eb57b72ffd2706b79b803862b7c)
 # and the release deseq2-package.zip of upstream v0.1.0-rc.1. No secrets. No upstream build step is changed.
 name: qRNAmap spike 0 parity
+# Trigger: a push to qrnamap-spike0 registers the workflow (the file is not on the default branch);
+# later runs use workflow_dispatch by workflow ID with ref qrnamap-spike0. Upstream push workflows that a
+# push also starts are cancelled by hand (they are not part of spike 0).
 on:
   workflow_dispatch:
   push:
